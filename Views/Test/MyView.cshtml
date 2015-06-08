@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+@using ThisMVCOne.Models
+@using ThisMVCOne.ViewModels
+@model EmployeeViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <!-- Now with ViewModel there will be no logic like there was with our regular View -->
+
+    Hello @Model.UserName
+    <hr />
+
+    <div>
+        <b>Employee Details</b><br />
+        Employee Name : @Model.EmployeeName <br />
+        <span style="background-color:@Model.SalaryColor">
+            Employee Salary: @Model.Salary
+        </span>
+
+    </div>
+</body>
+</html>
