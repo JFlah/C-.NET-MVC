@@ -91,6 +91,23 @@ namespace ThisMVCOne.Controllers
 
 
             //return View("MyView"); */
+
+            /* Replaced in day 2 lab 7 going from EmployeeViewModel to EmployeeListViewModel strong type
+             <body>
+                <!-- Now with ViewModel there will be no logic like there was with our regular View -->
+
+                Hello @Model.UserName
+                <hr />
+
+                <div>
+                    <b>Employee Details</b><br />
+                    Employee Name : @Model.EmployeeName <br />
+                    <span style="background-color:@Model.SalaryColor">
+                        Employee Salary: @Model.Salary
+                    </span>
+
+                </div>
+            </body> */
         }
     }
 }
