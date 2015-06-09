@@ -39,7 +39,35 @@ namespace ThisMVCOne.Controllers
         {
             return "Hi, I am not action method";
         }
+        public ActionResult GetView()
+        {
+            EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
 
+            EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
+            List<Employee> employees = empBal.GetEmployees();
+
+            List<EmployeeViewModel> empViewModels = new List<EmployeeViewModel>();
+
+            foreach (Employee emp in employees)
+            {
+                EmployeeViewModel empViewModel = new EmployeeViewModel();
+                empViewModel.EmployeeName = emp.FirstName + " " + emp.LastName;
+                empViewModel.Salary = emp.Salary.ToString("C");
+                if (emp.Salary > 15000)
+                {
+                    empViewModel.SalaryColor = "yellow";
+                }
+                else
+                {
+                    empViewModel.SalaryColor = "green";
+                }
+                empViewModels.Add(empViewModel);
+            }
+            employeeListViewModel.Employees = empViewModels;
+            employeeListViewModel.Username = "Admin";
+            return View("MyView", employeeListViewModel);
+        }
+        /*
         public ActionResult GetView()
         {
             Employee emp = new Employee();
@@ -110,4 +138,3 @@ namespace ThisMVCOne.Controllers
             </body> */
         }
     }
-}
